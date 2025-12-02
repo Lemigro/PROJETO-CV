@@ -233,6 +233,9 @@ body::before {
     font-size: 1rem;
     margin-bottom: 20px;
     font-style: italic;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.4;
 }
 
 /* XP Bar */
@@ -291,6 +294,8 @@ body::before {
     align-items: center;
     gap: 15px;
     transition: transform 0.3s, box-shadow 0.3s;
+    min-width: 0;
+    overflow: hidden;
 }
 
 .stat-item:hover {
@@ -313,6 +318,8 @@ body::before {
 
 .stat-info {
     flex: 1;
+    min-width: 0;
+    overflow: hidden;
 }
 
 .stat-name {
@@ -321,6 +328,9 @@ body::before {
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-bottom: 5px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
 }
 
 .stat-value {
@@ -488,15 +498,22 @@ body::before {
     line-height: 1.8;
     color: var(--rpg-brown);
     font-size: 1.05rem;
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
 }
 
 .bio-content p strong {
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
+    margin-right: 4px;
+    white-space: nowrap;
+}
+
+.bio-content p .lucide-icon-inline {
+    flex-shrink: 0;
+    display: inline-block;
 }
 
 /* Experience Section */
@@ -605,6 +622,19 @@ body::before {
     padding: 25px;
     margin-bottom: 20px;
     box-shadow: 0 10px 30px var(--rpg-shadow);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+.education-card-link {
+    cursor: pointer;
+}
+
+.education-card-link:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 15px 40px var(--rpg-shadow);
 }
 
 .education-header {
@@ -802,4 +832,110 @@ body::before {
 
 ::-webkit-scrollbar-thumb:hover {
     background: var(--rpg-dark-gold);
+}
+
+/* ============================================
+   RESPONSIVIDADE MOBILE - BIO SECTION
+   ============================================ */
+
+/* Mobile Portrait - Telas pequenas (até 480px) */
+@media (max-width: 480px) {
+    .bio-card {
+        padding: 20px 15px;
+    }
+
+    .bio-content p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: 12px;
+        text-align: left;
+    }
+
+    .bio-content p strong {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        margin-right: 4px;
+        white-space: normal;
+    }
+
+    .bio-content p .lucide-icon-inline {
+        flex-shrink: 0;
+    }
+}
+
+/* Mobile Landscape e Tablets pequenos (481px - 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+    .bio-card {
+        padding: 25px 20px;
+    }
+
+    .bio-content p {
+        font-size: 1rem;
+    }
+}
+
+/* Ajustes gerais para telas pequenas */
+@media (max-width: 768px) {
+    .bio-content p {
+        word-break: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+
+    .bio-content p strong {
+        white-space: normal;
+    }
+
+    /* Ajustes para stats no mobile */
+    .stat-item {
+        padding: 12px 10px;
+        gap: 10px;
+    }
+
+    .stat-icon .lucide-icon {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+
+    .stat-name {
+        font-size: 0.7rem;
+        letter-spacing: 0.5px;
+        line-height: 1.2;
+    }
+
+    .stat-value {
+        font-size: 1.5rem;
+    }
+}
+
+/* Ajustes específicos para mobile portrait */
+@media (max-width: 480px) {
+    .stat-item {
+        padding: 10px 8px;
+        gap: 8px;
+    }
+
+    .stat-icon .lucide-icon {
+        width: 1.3rem;
+        height: 1.3rem;
+    }
+
+    .stat-name {
+        font-size: 0.65rem;
+        letter-spacing: 0.3px;
+    }
+
+    .stat-value {
+        font-size: 1.3rem;
+    }
+
+    .main-stats {
+        gap: 10px;
+    }
+
+    .character-class {
+        font-size: 0.85rem;
+        padding: 0 5px;
+    }
 }

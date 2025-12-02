@@ -13,28 +13,28 @@ export default function BioSection() {
               <GraduationCap size={18} className="lucide-icon-inline" />
               Formado em Análise e Desenvolvimento de Sistemas
             </strong>
-            {' '}e estudante de <strong>Ciências da Computação</strong>
+            {' '}e estudante de <strong>Ciências da Computação</strong>.
           </p>
           <p>
             <strong>
               <Rocket size={18} className="lucide-icon-inline" />
               Focado em aprender mais todos os dias
             </strong>
-            {' '}- Sempre em busca de novos desafios e tecnologias
+            {' '}— Sempre em busca de novos desafios e tecnologias.
           </p>
           <p>
             <strong>
               <Lightbulb size={18} className="lucide-icon-inline" />
               Sempre buscando criar soluções inovadoras
             </strong>
-            {' '}que façam a diferença no mundo da tecnologia
+            {' '}que façam a diferença no mundo da tecnologia.
           </p>
           <p>
             <strong>
               <Code size={18} className="lucide-icon-inline" />
-              Desenvolvedor de software focado em back-end
+              Desenvolvedor Full Stack
             </strong>
-            {' '}com Java e Oracle PL/SQL. Apaixonado por tecnologia e sempre em busca de novos desafios.
+            {' '}com experiência em Java, PL/SQL, React e Vue.js. Apaixonado por tecnologia e sempre em busca de novos desafios.
           </p>
         </div>
       </div>

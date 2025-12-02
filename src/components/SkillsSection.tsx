@@ -10,31 +10,35 @@ interface Skill {
 const languages: Skill[] = [
   { name: 'Java', level: 90 },
   { name: 'PL/SQL', level: 90 },
-  { name: 'Kotlin', level: 75 },
-  { name: 'PHP', level: 70 },
   { name: 'JavaScript', level: 80 },
-  { name: 'Vue.js', level: 75 },
-  { name: 'HTML5', level: 85 },
-  { name: 'CSS3', level: 80 },
+  { name: 'TypeScript', level: 75 },
+  { name: 'PHP', level: 70 },
+  { name: 'Dart', level: 50 },
+  { name: 'Kotlin', level: 50 },
 ];
 
 const frameworks: Skill[] = [
-  { name: 'Spring', level: 85 },
-  { name: 'Express.js', level: 75 },
-  { name: 'Laravel', level: 70 },
+  { name: 'Spring Boot', level: 85 },
+  { name: 'React', level: 80 },
   { name: 'Node.js', level: 75 },
-  { name: 'Bootstrap', level: 70 },
+  { name: 'Vue.js', level: 75 },
+  { name: 'Tailwind CSS', level: 75 },
+  { name: 'Angular', level: 70 },
+  { name: 'Laravel', level: 70 },
+  { name: 'Flutter', level: 50 },
 ];
 
 const tools: Skill[] = [
   { name: 'Git', level: 85 },
   { name: 'Firebase', level: 80 },
   { name: 'Vercel', level: 75 },
-  { name: 'Netlify', level: 70 },
   { name: 'Render', level: 70 },
   { name: 'VSCode', level: 85 },
   { name: 'IntelliJ', level: 80 },
+  { name: 'PhpStorm', level: 70 },
   { name: 'Android Studio', level: 75 },
+  { name: 'Eclipse', level: 70 },
+  { name: 'Putty', level: 50 },
 ];
 
 export default function SkillsSection() {
@@ -46,7 +50,7 @@ export default function SkillsSection() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             const skillFill = entry.target.querySelector('.skill-fill') as HTMLElement;
-            const skillLevel = entry.target.getAttribute('data-level');
+            const skillLevel = (entry.target as HTMLElement).dataset.level;
             if (skillFill && skillLevel) {
               skillFill.style.width = `${skillLevel}%`;
             }

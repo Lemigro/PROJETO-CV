@@ -1,5 +1,5 @@
 interface InfoCardProps {
-  age: string;
+  readonly age: string;
 }
 
 export default function InfoCard({ age }: InfoCardProps) {
@@ -24,6 +24,14 @@ export default function InfoCard({ age }: InfoCardProps) {
         <div className="info-item">
           <i className="fas fa-phone"></i>
           <span>Telefone: <strong>(81) 99708-1146</strong></span>
+        </div>
+        <div className="info-item">
+          <i className="fas fa-music"></i>
+          <span>Hobby: <strong>Músico</strong></span>
+        </div>
+        <div className="info-item">
+          <i className="fas fa-code"></i>
+          <span>Foco: <strong>Full Stack Development</strong></span>
         </div>
       </div>
     </div>

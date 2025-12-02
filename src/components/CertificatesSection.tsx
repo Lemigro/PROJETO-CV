@@ -42,8 +42,8 @@ export default function CertificatesSection() {
       </h2>
       
       <div className="certificates-grid">
-        {certificates.map((cert, index) => (
-          <div key={index} className="certificate-card">
+        {certificates.map((cert) => (
+          <div key={cert.title} className="certificate-card">
             <div className="certificate-icon">
               <Trophy size={48} className="lucide-icon" />
             </div>

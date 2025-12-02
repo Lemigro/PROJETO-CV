@@ -26,7 +26,7 @@ export default function CharacterCard() {
     <div className="character-section">
       <div className="character-card">
         <div className="character-avatar">
-          <img src="/img/pedro_pixel.jpg" alt="Pedro Nascimento" className="avatar-img" />
+          <img src="/img/pedro_pixel_02.jpg" alt="Pedro Nascimento" className="avatar-img" />
           <div className="level-badge">
             <span className="level-number">25</span>
             <span className="level-label">LVL</span>
@@ -38,7 +38,7 @@ export default function CharacterCard() {
             <Code size={28} className="lucide-icon" />
             Pedro Nascimento
           </h2>
-          <p className="character-class">Back-end Developer | Java | PL/SQL</p>
+          <p className="character-class">Full Stack Developer | Java | PL/SQL | React</p>
           
           <div className="xp-bar-container">
             <div className="xp-label">
