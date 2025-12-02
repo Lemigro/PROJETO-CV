@@ -16,7 +16,7 @@ function calculateAge() {
 // Atualizar idade na página
 function updateAge() {
     const ageElement = document.querySelector('.info-item span strong');
-    if (ageElement && ageElement.textContent.includes('Calculando')) {
+    if (ageElement?.textContent.includes('Calculando')) {
         const age = calculateAge();
         ageElement.textContent = `${age} anos`;
     }
@@ -29,7 +29,7 @@ function animateSkillsOnScroll() {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const skillFill = entry.target.querySelector('.skill-fill');
-                const skillLevel = entry.target.getAttribute('data-level');
+                const skillLevel = entry.target.dataset.level;
                 if (skillFill && skillLevel) {
                     skillFill.style.width = `${skillLevel}%`;
                     entry.target.classList.add('animated');
@@ -85,7 +85,7 @@ function addSkillTooltips() {
     skillItems.forEach(item => {
         item.addEventListener('mouseenter', function(e) {
             const skillName = this.querySelector('.skill-name').textContent;
-            const skillLevel = this.getAttribute('data-level');
+            const skillLevel = this.dataset.level;
             
             // Criar tooltip
             const tooltip = document.createElement('div');

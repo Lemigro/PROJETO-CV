@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CharacterCard from '../components/CharacterCard';
+import SkillsSection from '../components/SkillsSection';
+import BioSection from '../components/BioSection';
+import ExperienceSection from '../components/ExperienceSection';
+import EducationSection from '../components/EducationSection';
+import CertificatesSection from '../components/CertificatesSection';
+import Footer from '../components/Footer';
+---
+
+<BaseLayout title="Pedro Nascimento - RPG Character Sheet">
+  <div class="rpg-container">
+    <header class="rpg-header">
+      <h1 class="rpg-title">CHARACTER SHEET</h1>
+      <div class="rpg-subtitle">Desenvolvedor Back-end</div>
+    </header>
+
+    <CharacterCard client:load />
+    <SkillsSection client:load />
+    <BioSection />
+    <ExperienceSection />
+    <EducationSection />
+    <CertificatesSection />
+    <Footer />
+  </div>
+</BaseLayout>
+
