@@ -1,48 +1,127 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useMemo } from 'react';
 import { Code2, Sword, Wrench } from 'lucide-react';
 import SkillItem from './SkillItem';
 
 interface Skill {
   name: string;
-  level: number;
+  baseLevel: number; // Nível base quando começou
+  category: 'primary' | 'secondary' | 'learning' | 'tool';
+  startDate?: string; // Data que começou a usar (opcional)
 }
 
-const languages: Skill[] = [
-  { name: 'Java', level: 90 },
-  { name: 'PL/SQL', level: 90 },
-  { name: 'JavaScript', level: 80 },
-  { name: 'TypeScript', level: 75 },
-  { name: 'PHP', level: 70 },
-  { name: 'Dart', level: 50 },
-  { name: 'Kotlin', level: 50 },
+// Data de início da carreira como desenvolvedor
+const CAREER_START_DATE = new Date('2024-07-01'); // Jul 2024
+
+// Função para calcular meses de experiência
+const calculateMonthsOfExperience = (): number => {
+  const today = new Date();
+  const months = (today.getFullYear() - CAREER_START_DATE.getFullYear()) * 12 +
+    (today.getMonth() - CAREER_START_DATE.getMonth());
+  return Math.max(0, months);
+};
+
+// Função para calcular nível baseado na experiência
+const calculateSkillLevel = (skill: Skill, monthsOfExp: number): number => {
+  const { baseLevel, category } = skill;
+  
+  // Taxa de crescimento mensal baseada na categoria
+  const growthRates = {
+    primary: 2.5,    // Tecnologias principais (usadas diariamente no trabalho)
+    secondary: 1.8, // Tecnologias secundárias (projetos pessoais)
+    learning: 1.2,  // Tecnologias em aprendizado
+    tool: 2,        // Ferramentas
+  };
+  
+  const growthRate = growthRates[category];
+  const monthsUsing = skill.startDate 
+    ? calculateMonthsOfExperience() - getMonthsSince(skill.startDate)
+    : monthsOfExp;
+  
+  // Calcular nível: baseLevel + (meses usando * taxa de crescimento)
+  // Com limite máximo baseado na categoria
+  const maxLevels = {
+    primary: 75,
+    secondary: 65,
+    learning: 50,
+    tool: 70,
+  };
+  
+  const calculatedLevel = Math.min(
+    baseLevel + (monthsUsing * growthRate),
+    maxLevels[category]
+  );
+  
+  return Math.round(calculatedLevel);
+};
+
+// Função auxiliar para calcular meses desde uma data
+const getMonthsSince = (dateString: string): number => {
+  const date = new Date(dateString);
+  const today = new Date();
+  return (today.getFullYear() - date.getFullYear()) * 12 +
+    (today.getMonth() - date.getMonth());
+};
+
+const languagesData: Skill[] = [
+  { name: 'Java', baseLevel: 40, category: 'primary', startDate: '2024-07-01' },
+  { name: 'PL/SQL', baseLevel: 40, category: 'primary', startDate: '2024-07-01' },
+  { name: 'JavaScript', baseLevel: 35, category: 'secondary', startDate: '2024-01-01' },
+  { name: 'TypeScript', baseLevel: 30, category: 'secondary', startDate: '2024-09-01' },
+  { name: 'PHP', baseLevel: 30, category: 'secondary', startDate: '2024-10-01' },
+  { name: 'Dart', baseLevel: 20, category: 'learning', startDate: '2025-01-01' },
+  { name: 'Kotlin', baseLevel: 20, category: 'learning', startDate: '2025-01-01' },
 ];
 
-const frameworks: Skill[] = [
-  { name: 'Spring Boot', level: 85 },
-  { name: 'React', level: 80 },
-  { name: 'Node.js', level: 75 },
-  { name: 'Vue.js', level: 75 },
-  { name: 'Tailwind CSS', level: 75 },
-  { name: 'Angular', level: 70 },
-  { name: 'Laravel', level: 70 },
-  { name: 'Flutter', level: 50 },
+const frameworksData: Skill[] = [
+  { name: 'Spring Boot', baseLevel: 40, category: 'primary', startDate: '2024-07-01' },
+  { name: 'React', baseLevel: 35, category: 'secondary', startDate: '2024-08-01' },
+  { name: 'Node.js', baseLevel: 30, category: 'secondary', startDate: '2024-08-01' },
+  { name: 'Vue.js', baseLevel: 30, category: 'secondary', startDate: '2024-09-01' },
+  { name: 'Tailwind CSS', baseLevel: 35, category: 'secondary', startDate: '2024-10-01' },
+  { name: 'Angular', baseLevel: 35, category: 'primary', startDate: '2024-07-01' },
+  { name: 'Laravel', baseLevel: 30, category: 'secondary', startDate: '2024-10-01' },
+  { name: 'Flutter', baseLevel: 20, category: 'learning', startDate: '2025-01-01' },
 ];
 
-const tools: Skill[] = [
-  { name: 'Git', level: 85 },
-  { name: 'Firebase', level: 80 },
-  { name: 'Vercel', level: 75 },
-  { name: 'Render', level: 70 },
-  { name: 'VSCode', level: 85 },
-  { name: 'IntelliJ', level: 80 },
-  { name: 'PhpStorm', level: 70 },
-  { name: 'Android Studio', level: 75 },
-  { name: 'Eclipse', level: 70 },
-  { name: 'Putty', level: 50 },
+const toolsData: Skill[] = [
+  { name: 'Git', baseLevel: 45, category: 'tool', startDate: '2024-01-01' },
+  { name: 'Firebase', baseLevel: 35, category: 'tool', startDate: '2024-08-01' },
+  { name: 'Vercel', baseLevel: 30, category: 'tool', startDate: '2024-08-01' },
+  { name: 'Render', baseLevel: 30, category: 'tool', startDate: '2024-09-01' },
+  { name: 'VSCode', baseLevel: 50, category: 'tool', startDate: '2024-01-01' },
+  { name: 'IntelliJ', baseLevel: 40, category: 'tool', startDate: '2024-07-01' },
+  { name: 'PhpStorm', baseLevel: 30, category: 'tool', startDate: '2024-10-01' },
+  { name: 'Android Studio', baseLevel: 30, category: 'tool', startDate: '2025-01-01' },
+  { name: 'Eclipse', baseLevel: 35, category: 'tool', startDate: '2024-07-01' },
+  { name: 'Putty', baseLevel: 30, category: 'tool', startDate: '2024-07-01' },
 ];
 
 export default function SkillsSection() {
   const skillItemsRef = useRef<HTMLDivElement[]>([]);
+  
+  // Calcular níveis baseados na experiência atual
+  const monthsOfExp = useMemo(() => calculateMonthsOfExperience(), []);
+  
+  const languages = useMemo(() => 
+    languagesData.map(skill => ({
+      name: skill.name,
+      level: calculateSkillLevel(skill, monthsOfExp),
+    })), [monthsOfExp]
+  );
+  
+  const frameworks = useMemo(() => 
+    frameworksData.map(skill => ({
+      name: skill.name,
+      level: calculateSkillLevel(skill, monthsOfExp),
+    })), [monthsOfExp]
+  );
+  
+  const tools = useMemo(() => 
+    toolsData.map(skill => ({
+      name: skill.name,
+      level: calculateSkillLevel(skill, monthsOfExp),
+    })), [monthsOfExp]
+  );
 
   useEffect(() => {
     const observer = new IntersectionObserver(

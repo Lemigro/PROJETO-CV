@@ -38,7 +38,7 @@ export default function CharacterCard() {
             <Code size={28} className="lucide-icon" />
             Pedro Nascimento
           </h2>
-          <p className="character-class">Full Stack Developer | Java | PL/SQL | React</p>
+          <p className="character-class">Full Stack Developer | Java | PL/SQL</p>
           
           <div className="xp-bar-container">
             <div className="xp-label">
