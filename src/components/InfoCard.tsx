@@ -22,8 +22,18 @@ export default function InfoCard({ age }: InfoCardProps) {
           <span>Email: <strong>pedro.cosmica@gmail.com</strong></span>
         </div>
         <div className="info-item">
-          <i className="fas fa-phone"></i>
-          <span>Telefone: <strong>(81) 99708-1146</strong></span>
+          <i className="fab fa-whatsapp"></i>
+          <span>
+            WhatsApp:{' '}
+            <a 
+              href="https://wa.me/5581997081146" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="whatsapp-link"
+            >
+              <strong>(81) 99708-1146</strong>
+            </a>
+          </span>
         </div>
         <div className="info-item">
           <i className="fas fa-music"></i>

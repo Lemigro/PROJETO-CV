@@ -385,6 +385,26 @@ body::before {
     font-size: 1.2rem;
 }
 
+.info-item .whatsapp-link {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s, transform 0.2s;
+}
+
+.info-item .whatsapp-link:hover {
+    color: #25D366;
+    transform: scale(1.05);
+}
+
+.info-item .whatsapp-link strong {
+    color: inherit;
+    transition: color 0.3s;
+}
+
+.info-item .whatsapp-link:hover strong {
+    color: #25D366;
+}
+
 /* Skills Section */
 .skills-section {
     margin-bottom: 40px;
