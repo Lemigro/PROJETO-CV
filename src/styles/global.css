@@ -62,6 +62,8 @@ body::before {
     box-shadow: 0 10px 30px var(--rpg-shadow), inset 0 0 20px rgba(212, 175, 55, 0.2);
     position: relative;
     overflow: hidden;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .rpg-header::before {
@@ -97,6 +99,9 @@ body::before {
     margin-bottom: 10px;
     position: relative;
     z-index: 1;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
 }
 
 .rpg-subtitle {
@@ -957,5 +962,56 @@ body::before {
     .character-class {
         font-size: 0.85rem;
         padding: 0 5px;
+    }
+
+    /* Ajustes para header no mobile */
+    .rpg-header {
+        padding: 20px 15px;
+        margin-bottom: 20px;
+    }
+
+    .rpg-title {
+        font-size: 1.5rem;
+        letter-spacing: 2px;
+        margin-bottom: 8px;
+        line-height: 1.2;
+        word-break: break-word;
+    }
+
+    .rpg-subtitle {
+        font-size: 0.9rem;
+    }
+}
+
+/* Ajustes para iPhone 8 e telas muito pequenas (até 375px) */
+@media (max-width: 375px) {
+    .rpg-header {
+        padding: 15px 10px;
+    }
+
+    .rpg-title {
+        font-size: 1.3rem;
+        letter-spacing: 1.5px;
+        line-height: 1.3;
+    }
+
+    .rpg-subtitle {
+        font-size: 0.85rem;
+    }
+}
+
+/* Ajustes para telas médias (376px - 480px) */
+@media (min-width: 376px) and (max-width: 480px) {
+    .rpg-header {
+        padding: 20px 15px;
+    }
+
+    .rpg-title {
+        font-size: 1.6rem;
+        letter-spacing: 2.5px;
+    }
+
+    .rpg-subtitle {
+        font-size: 0.95rem;
     }
 }
