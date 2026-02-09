@@ -4,15 +4,13 @@ import SkillItem from './SkillItem';
 
 interface Skill {
   name: string;
-  baseLevel: number; // Nível base quando começou
+  baseLevel: number;
   category: 'primary' | 'secondary' | 'learning' | 'tool';
-  startDate?: string; // Data que começou a usar (opcional)
+  startDate?: string;
 }
 
-// Data de início da carreira como desenvolvedor
-const CAREER_START_DATE = new Date('2024-07-01'); // Jul 2024
+const CAREER_START_DATE = new Date('2024-07-01');
 
-// Função para calcular meses de experiência
 const calculateMonthsOfExperience = (): number => {
   const today = new Date();
   const months = (today.getFullYear() - CAREER_START_DATE.getFullYear()) * 12 +
@@ -20,16 +18,14 @@ const calculateMonthsOfExperience = (): number => {
   return Math.max(0, months);
 };
 
-// Função para calcular nível baseado na experiência
 const calculateSkillLevel = (skill: Skill, monthsOfExp: number): number => {
   const { baseLevel, category } = skill;
   
-  // Taxa de crescimento mensal baseada na categoria
   const growthRates = {
-    primary: 2.5,    // Tecnologias principais (usadas diariamente no trabalho)
-    secondary: 1.8, // Tecnologias secundárias (projetos pessoais)
-    learning: 1.2,  // Tecnologias em aprendizado
-    tool: 2,        // Ferramentas
+    primary: 2.5,
+    secondary: 1.8,
+    learning: 1.2,
+    tool: 2,
   };
   
   const growthRate = growthRates[category];
@@ -37,8 +33,6 @@ const calculateSkillLevel = (skill: Skill, monthsOfExp: number): number => {
     ? calculateMonthsOfExperience() - getMonthsSince(skill.startDate)
     : monthsOfExp;
   
-  // Calcular nível: baseLevel + (meses usando * taxa de crescimento)
-  // Com limite máximo baseado na categoria
   const maxLevels = {
     primary: 75,
     secondary: 65,
@@ -54,7 +48,6 @@ const calculateSkillLevel = (skill: Skill, monthsOfExp: number): number => {
   return Math.round(calculatedLevel);
 };
 
-// Função auxiliar para calcular meses desde uma data
 const getMonthsSince = (dateString: string): number => {
   const date = new Date(dateString);
   const today = new Date();
@@ -99,7 +92,6 @@ const toolsData: Skill[] = [
 export default function SkillsSection() {
   const skillItemsRef = useRef<HTMLDivElement[]>([]);
   
-  // Calcular níveis baseados na experiência atual
   const monthsOfExp = useMemo(() => calculateMonthsOfExperience(), []);
   
   const languages = useMemo(() => 
