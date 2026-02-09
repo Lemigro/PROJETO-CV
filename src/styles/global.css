@@ -592,10 +592,24 @@ body::before {
     padding-left: 40px;
 }
 
+.quest-title-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
 .quest-title {
     font-size: 1.5rem;
     color: var(--rpg-dark-brown);
     font-weight: bold;
+    margin: 0;
+}
+
+.quest-company {
+    font-size: 1rem;
+    color: var(--rpg-gold);
+    font-weight: 500;
+    font-style: italic;
 }
 
 .quest-period {
