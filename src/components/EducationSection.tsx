@@ -1,4 +1,4 @@
-interface Education {
+export interface Education {
   title: string;
   type: string;
   institution: string;
@@ -6,30 +6,19 @@ interface Education {
   link?: string;
 }
 
-const educations: Education[] = [
-  {
-    title: 'Análise e Desenvolvimento de Sistemas',
-    type: 'Tecnólogo',
-    institution: 'Faculdade Nova Roma',
-    period: 'Fev 2023 - Jun 2025',
-    link: '/certificados/Declaracao conclusao curso ADS Pedro H A Nascimento_NOVAROMA.pdf',
-  },
-  {
-    title: 'Ciências da Computação',
-    type: 'Bacharelado',
-    institution: 'Faculdade Nova Roma',
-    period: 'Ago 2025 - Dez 2026',
-  },
-];
+interface EducationSectionProps {
+  sectionTitle: string;
+  educations: Education[];
+}
 
-export default function EducationSection() {
+export default function EducationSection({ sectionTitle, educations }: EducationSectionProps) {
   return (
     <div className="education-section">
       <h2 className="section-title">
-        <i className="fas fa-graduation-cap"></i> FORMAÇÃO
+        <i className="fas fa-graduation-cap"></i> {sectionTitle}
       </h2>
       
-      {educations.map((edu) => {
+      {educations.map((edu, index) => {
         const CardContent = (
           <>
             <div className="education-header">
@@ -49,7 +38,7 @@ export default function EducationSection() {
 
         return edu.link ? (
           <a
-            key={edu.title}
+            key={index}
             href={edu.link}
             target="_blank"
             rel="noopener noreferrer"
@@ -58,7 +47,7 @@ export default function EducationSection() {
             {CardContent}
           </a>
         ) : (
-          <div key={edu.title} className="education-card">
+          <div key={index} className="education-card">
             {CardContent}
           </div>
         );
@@ -66,4 +55,3 @@ export default function EducationSection() {
     </div>
   );
 }
-

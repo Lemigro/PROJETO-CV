@@ -1,6 +1,6 @@
 import { Sword } from 'lucide-react';
 
-interface Experience {
+export interface Experience {
   title: string;
   company: string;
   period: string;
@@ -8,33 +8,16 @@ interface Experience {
   tags: string[];
 }
 
-const experiences: Experience[] = [
-  {
-    title: 'Desenvolvedor Jr.',
-    company: 'MV-Sistemas',
-    period: 'Jul 2024 - Atualmente',
-    description: [
-      'Responsável pelo desenvolvimento e manutenção de sistemas na equipe Prime da Unimed-BH, utilizando Java com Spring Framework, Angular 10 e PL/SQL (Oracle).',
-      'Participei de melhorias e implementações em serviços corporativos. Nesse período, também idealizei e desenvolvi o projeto ZenMV, uma plataforma de bem-estar corporativo com agendamento de massagens e check-ins em atividades, construída em Laravel 11, TailwindCSS e Livewire.',
-    ],
-    tags: ['Java', 'Spring Boot', 'PL/SQL', 'Laravel', 'Angular', 'Git'],
-  },
-  {
-    title: 'Assistente de TI',
-    company: '1º RGI - Cartório Eduardo Malta',
-    period: 'Fev 2021 - Fev 2024',
-    description: [
-      'Suporte aos Colaboradores do Cartório, manutenção de máquina, instalação de programas, elaboração de relatórios.',
-    ],
-    tags: ['Suporte Técnico', 'Manutenção'],
-  },
-];
+interface ExperienceSectionProps {
+  sectionTitle: string;
+  experiences: Experience[];
+}
 
-export default function ExperienceSection() {
+export default function ExperienceSection({ sectionTitle, experiences }: ExperienceSectionProps) {
   return (
     <div className="experience-section">
       <h2 className="section-title">
-        <i className="fas fa-trophy"></i> MISSÕES COMPLETADAS
+        <i className="fas fa-trophy"></i> {sectionTitle}
       </h2>
       
       {experiences.map((exp, index) => (
@@ -62,4 +45,3 @@ export default function ExperienceSection() {
     </div>
   );
 }
-

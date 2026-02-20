@@ -1,4 +1,8 @@
-export default function Footer() {
+interface FooterProps {
+  developedByText: string;
+}
+
+export default function Footer({ developedByText }: FooterProps) {
   return (
     <footer className="rpg-footer">
       <div className="social-links">
@@ -20,9 +24,8 @@ export default function Footer() {
         </a>
       </div>
       <p className="footer-text">
-        Desenvolvido por <strong>Pedro Nascimento</strong>
+        {developedByText} <strong>Pedro Nascimento</strong>
       </p>
     </footer>
   );
 }
-
