@@ -2,8 +2,35 @@ import { useEffect, useState } from 'react';
 import { Code, Sword, Shield, Brain, Zap } from 'lucide-react';
 import InfoCard from './InfoCard';
 
-export default function CharacterCard() {
-  const [age, setAge] = useState<string>('Calculando...');
+interface CharacterCardProps {
+  calculatingText: string;
+  yearsText: string;
+  strText: string;
+  defText: string;
+  intText: string;
+  spdText: string;
+  nameText: string;
+  classText: string;
+  xpLabel: string;
+  xpText: string;
+  infoCardTexts: {
+    titleText: string;
+    ageLabel: string;
+    locationLabel: string;
+    locationValue: string;
+    emailLabel: string;
+    whatsappLabel: string;
+    hobbyLabel: string;
+    hobbyValue: string;
+    focusLabel: string;
+  };
+}
+
+export default function CharacterCard({
+  calculatingText, yearsText, strText, defText, intText, spdText,
+  nameText, classText, xpLabel, xpText, infoCardTexts
+}: CharacterCardProps) {
+  const [age, setAge] = useState<string>(calculatingText);
 
   useEffect(() => {
     const calculateAge = () => {
@@ -16,19 +43,19 @@ export default function CharacterCard() {
         calculatedAge--;
       }
       
-      setAge(`${calculatedAge} anos`);
+      setAge(`${calculatedAge} ${yearsText}`);
     };
 
     calculateAge();
-  }, []);
+  }, [yearsText]);
 
   return (
     <div className="character-section">
       <div className="character-card">
         <div className="character-avatar">
-          <img src="/img/pedro_pixel_02.jpg" alt="Pedro Nascimento" className="avatar-img" />
+          <img src="/img/pedro_pixel_02.jpg" alt={nameText} className="avatar-img" />
           <div className="level-badge">
-            <span className="level-number">25</span>
+            <span className="level-number">33</span>
             <span className="level-label">LVL</span>
           </div>
         </div>
@@ -36,14 +63,14 @@ export default function CharacterCard() {
         <div className="character-info">
           <h2 className="character-name">
             <Code size={28} className="lucide-icon" />
-            Pedro Nascimento
+            {nameText}
           </h2>
-          <p className="character-class">Full Stack Developer | Java | PL/SQL</p>
+          <p className="character-class">{classText}</p>
           
           <div className="xp-bar-container">
             <div className="xp-label">
-              <span>EXPERIENCE</span>
-              <span className="xp-value">8,500 / 10,000 XP</span>
+              <span>{xpLabel}</span>
+              <span className="xp-value">{xpText}</span>
             </div>
             <div className="xp-bar">
               <div className="xp-fill" style={{ width: '85%' }}></div>
@@ -52,38 +79,30 @@ export default function CharacterCard() {
 
           <div className="main-stats">
             <div className="stat-item">
-              <div className="stat-icon">
-                <Sword size={32} className="lucide-icon" />
-              </div>
+              <div className="stat-icon"><Sword size={32} className="lucide-icon" /></div>
               <div className="stat-info">
-                <div className="stat-name">FORÇA</div>
+                <div className="stat-name">{strText}</div>
                 <div className="stat-value">85</div>
               </div>
             </div>
             <div className="stat-item">
-              <div className="stat-icon">
-                <Shield size={32} className="lucide-icon" />
-              </div>
+              <div className="stat-icon"><Shield size={32} className="lucide-icon" /></div>
               <div className="stat-info">
-                <div className="stat-name">DEFESA</div>
+                <div className="stat-name">{defText}</div>
                 <div className="stat-value">78</div>
               </div>
             </div>
             <div className="stat-item">
-              <div className="stat-icon">
-                <Brain size={32} className="lucide-icon" />
-              </div>
+              <div className="stat-icon"><Brain size={32} className="lucide-icon" /></div>
               <div className="stat-info">
-                <div className="stat-name">INTELIGÊNCIA</div>
+                <div className="stat-name">{intText}</div>
                 <div className="stat-value">92</div>
               </div>
             </div>
             <div className="stat-item">
-              <div className="stat-icon">
-                <Zap size={32} className="lucide-icon" />
-              </div>
+              <div className="stat-icon"><Zap size={32} className="lucide-icon" /></div>
               <div className="stat-info">
-                <div className="stat-name">VELOCIDADE</div>
+                <div className="stat-name">{spdText}</div>
                 <div className="stat-value">80</div>
               </div>
             </div>
@@ -91,8 +110,18 @@ export default function CharacterCard() {
         </div>
       </div>
 
-      <InfoCard age={age} />
+      <InfoCard 
+        age={age} 
+        titleText={infoCardTexts.titleText}
+        ageLabel={infoCardTexts.ageLabel}
+        locationLabel={infoCardTexts.locationLabel}
+        locationValue={infoCardTexts.locationValue}
+        emailLabel={infoCardTexts.emailLabel}
+        whatsappLabel={infoCardTexts.whatsappLabel}
+        hobbyLabel={infoCardTexts.hobbyLabel}
+        hobbyValue={infoCardTexts.hobbyValue}
+        focusLabel={infoCardTexts.focusLabel}
+      />
     </div>
   );
 }
-

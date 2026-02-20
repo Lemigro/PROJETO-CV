@@ -1,30 +1,42 @@
 interface InfoCardProps {
   readonly age: string;
+  titleText: string;
+  ageLabel: string;
+  locationLabel: string;
+  locationValue: string;
+  emailLabel: string;
+  whatsappLabel: string;
+  hobbyLabel: string;
+  hobbyValue: string;
+  focusLabel: string;
 }
 
-export default function InfoCard({ age }: InfoCardProps) {
+export default function InfoCard({ 
+  age, titleText, ageLabel, locationLabel, locationValue, 
+  emailLabel, whatsappLabel, hobbyLabel, hobbyValue, focusLabel 
+}: InfoCardProps) {
   return (
     <div className="info-card">
       <h3 className="card-title">
-        <i className="fas fa-scroll"></i> SOBRE O PERSONAGEM
+        <i className="fas fa-scroll"></i> {titleText}
       </h3>
       <div className="info-grid">
         <div className="info-item">
           <i className="fas fa-birthday-cake"></i>
-          <span>Idade: <strong>{age}</strong></span>
+          <span>{ageLabel} <strong>{age}</strong></span>
         </div>
         <div className="info-item">
           <i className="fas fa-map-marker-alt"></i>
-          <span>Localização: <strong>Recife, PE</strong></span>
+          <span>{locationLabel} <strong>{locationValue}</strong></span>
         </div>
         <div className="info-item">
           <i className="fas fa-envelope"></i>
-          <span>Email: <strong>pedro.cosmica@gmail.com</strong></span>
+          <span>{emailLabel} <strong>pedro.cosmica@gmail.com</strong></span>
         </div>
         <div className="info-item">
           <i className="fab fa-whatsapp"></i>
           <span>
-            WhatsApp:{' '}
+            {whatsappLabel}{' '}
             <a 
               href="https://wa.me/5581997081146" 
               target="_blank" 
@@ -37,14 +49,13 @@ export default function InfoCard({ age }: InfoCardProps) {
         </div>
         <div className="info-item">
           <i className="fas fa-music"></i>
-          <span>Hobby: <strong>Músico</strong></span>
+          <span>{hobbyLabel} <strong>{hobbyValue}</strong></span>
         </div>
         <div className="info-item">
           <i className="fas fa-code"></i>
-          <span>Foco: <strong>Full Stack Development</strong></span>
+          <span>{focusLabel} <strong>Full Stack Development</strong></span>
         </div>
       </div>
     </div>
   );
 }
-

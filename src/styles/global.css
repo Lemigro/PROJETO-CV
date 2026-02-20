@@ -1029,3 +1029,21 @@ body::before {
         font-size: 0.95rem;
     }
 }
+
+@media (max-width: 768px) {
+    .language-picker {
+        position: relative !important;
+        top: 0 !important;
+        right: 0 !important;
+        justify-content: center;
+        width: max-content;
+        margin: 0 auto 15px auto;
+        padding: 5px 15px !important;
+    }
+}
+
+@media (max-width: 375px) {
+    .language-picker {
+        margin-bottom: 10px;
+    }
+}

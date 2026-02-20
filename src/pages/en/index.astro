@@ -1,25 +1,22 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import CharacterCard from '../components/CharacterCard';
-import SkillsSection from '../components/SkillsSection';
-import BioSection from '../components/BioSection';
-import ExperienceSection from '../components/ExperienceSection';
-import EducationSection from '../components/EducationSection';
-import CertificatesSection from '../components/CertificatesSection';
-import Footer from '../components/Footer';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CharacterCard from '../../components/CharacterCard';
+import SkillsSection from '../../components/SkillsSection';
+import BioSection from '../../components/BioSection';
+import ExperienceSection from '../../components/ExperienceSection';
+import EducationSection from '../../components/EducationSection';
+import CertificatesSection from '../../components/CertificatesSection';
+import Footer from '../../components/Footer';
 
-// Importando o botão de idioma que criamos
-import LanguagePicker from '../components/LanguagePicker.astro';
-import { ui } from '../i18n/ui';
+import LanguagePicker from '../../components/LanguagePicker.astro';
+import { ui } from '../../i18n/ui';
 
-const lang = 'pt-BR';
+const lang = 'en-US';
 ---
 
-{/* Passando o lang para o BaseLayout para arrumar o SEO */}
 <BaseLayout title={ui[lang]['page.title']} lang={lang}>
   <div class="rpg-container">
     <header class="rpg-header">
-      {/* Botão de trocar idioma no topo */}
       <LanguagePicker currentLang={lang} />
       
       <h1 class="rpg-title">CHARACTER SHEET</h1>
@@ -50,7 +47,7 @@ const lang = 'pt-BR';
         focusLabel: ui[lang]['info.focus'],
       }}
     />
-    
+
     <SkillsSection 
       client:load 
       titleText={ui[lang]['skills.title']}
@@ -58,8 +55,7 @@ const lang = 'pt-BR';
       frameworksText={ui[lang]['skills.frameworks']}
       toolsText={ui[lang]['skills.tools']}
     />
-    
-    {/* BioSection corrigida com todas as props! */}
+
     <BioSection 
       title={ui[lang]['bio.title']}
       gradStrong={ui[lang]['bio.grad.strong']}
@@ -71,23 +67,23 @@ const lang = 'pt-BR';
       devStrong={ui[lang]['bio.dev.strong']}
       devText={ui[lang]['bio.dev.text']}
     />
-    
+
     <ExperienceSection 
       sectionTitle={ui[lang]['exp.title']}
       experiences={ui[lang]['exp.list'] as any}
     />
-    
+
     <EducationSection 
       sectionTitle={ui[lang]['edu.title']}
       educations={ui[lang]['edu.list'] as any}
     />
-    
+
     <CertificatesSection 
       sectionTitle={ui[lang]['certs.title']}
       viewText={ui[lang]['certs.view']}
       certificates={ui[lang]['certs.list'] as any} 
     />
-    
+
     <Footer developedByText={ui[lang]['footer.developedBy']} />
   </div>
 </BaseLayout>

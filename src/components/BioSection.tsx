@@ -1,44 +1,58 @@
 import { GraduationCap, Rocket, Lightbulb, Code } from 'lucide-react';
 
-export default function BioSection() {
+interface BioSectionProps {
+  title: string;
+  gradStrong: string;
+  gradText: string;
+  learnStrong: string;
+  learnText: string;
+  innovateStrong: string;
+  innovateText: string;
+  devStrong: string;
+  devText: string;
+}
+
+export default function BioSection({
+  title, gradStrong, gradText, learnStrong, learnText, 
+  innovateStrong, innovateText, devStrong, devText
+}: BioSectionProps) {
   return (
     <div className="bio-section">
       <h2 className="section-title">
-        <i className="fas fa-book"></i> BIOGRAFIA
+        <i className="fas fa-book"></i> {title}
       </h2>
       <div className="bio-card">
         <div className="bio-content">
           <p>
             <strong>
               <GraduationCap size={18} className="lucide-icon-inline" />
-              Formado em Análise e Desenvolvimento de Sistemas
+              {gradStrong}
             </strong>
-            {' '}e estudante de <strong>Ciências da Computação</strong>.
+            {' '}{gradText}
           </p>
           <p>
             <strong>
               <Rocket size={18} className="lucide-icon-inline" />
-              Focado em aprender mais todos os dias
+              {learnStrong}
             </strong>
-            {' '}— Sempre em busca de novos desafios e tecnologias.
+            {' '}{learnText}
           </p>
           <p>
             <strong>
               <Lightbulb size={18} className="lucide-icon-inline" />
-              Sempre buscando criar soluções inovadoras
+              {innovateStrong}
             </strong>
-            {' '}que façam a diferença no mundo da tecnologia.
+            {' '}{innovateText}
           </p>
           <p>
             <strong>
               <Code size={18} className="lucide-icon-inline" />
-              Desenvolvedor Full Stack
+              {devStrong}
             </strong>
-            {' '}com experiência em Java, PL/SQL, React e Vue.js. Apaixonado por tecnologia e sempre em busca de novos desafios.
+            {' '}{devText}
           </p>
         </div>
       </div>
     </div>
   );
 }
-

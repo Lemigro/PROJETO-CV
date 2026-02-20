@@ -5,5 +5,12 @@ import react from '@astrojs/react';
 export default defineConfig({
   integrations: [react()],
   output: 'static',
+  i18n: {
+    defaultLocale: 'pt-BR',
+    locales: ['pt-BR', 'en-US'],
+    routing: {
+      prefixDefaultLocale: false,
+    }
+  }
 });
 

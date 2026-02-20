@@ -9,6 +9,13 @@ interface Skill {
   startDate?: string;
 }
 
+interface SkillsSectionProps {
+  titleText: string;
+  languagesText: string;
+  frameworksText: string;
+  toolsText: string;
+}
+
 const CAREER_START_DATE = new Date('2024-07-01');
 
 const calculateMonthsOfExperience = (): number => {
@@ -89,7 +96,7 @@ const toolsData: Skill[] = [
   { name: 'Putty', baseLevel: 30, category: 'tool', startDate: '2024-07-01' },
 ];
 
-export default function SkillsSection() {
+export default function SkillsSection({ titleText, languagesText, frameworksText, toolsText }: SkillsSectionProps) {
   const skillItemsRef = useRef<HTMLDivElement[]>([]);
   
   const monthsOfExp = useMemo(() => calculateMonthsOfExperience(), []);
@@ -145,13 +152,13 @@ export default function SkillsSection() {
   return (
     <div className="skills-section">
       <h2 className="section-title">
-        <i className="fas fa-magic"></i> HABILIDADES TÉCNICAS
+        <i className="fas fa-magic"></i> {titleText}
       </h2>
       
       <div className="skill-category">
         <h3 className="category-title">
           <Code2 size={20} className="lucide-icon-inline" />
-          LINGUAGENS
+          {languagesText}
         </h3>
         <div className="skills-grid">
           {languages.map((skill, index) => (
@@ -172,7 +179,7 @@ export default function SkillsSection() {
       <div className="skill-category">
         <h3 className="category-title">
           <Sword size={20} className="lucide-icon-inline" />
-          FRAMEWORKS & BIBLIOTECAS
+          {frameworksText}
         </h3>
         <div className="skills-grid">
           {frameworks.map((skill, index) => (
@@ -193,7 +200,7 @@ export default function SkillsSection() {
       <div className="skill-category">
         <h3 className="category-title">
           <Wrench size={20} className="lucide-icon-inline" />
-          FERRAMENTAS & CLOUD
+          {toolsText}
         </h3>
         <div className="skills-grid">
           {tools.map((skill, index) => (
@@ -213,4 +220,3 @@ export default function SkillsSection() {
     </div>
   );
 }
-
