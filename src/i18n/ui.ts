@@ -1,46 +1,46 @@
 export const ui = {
-    'pt-BR': {
-      'page.title': 'Pedro Nascimento - RPG Character Sheet',
-      'page.subtitle': 'Desenvolvedor Full Stack',
-      'bio.title': 'BIOGRAFIA',
-      'bio.grad.strong': 'Formado em Análise e Desenvolvimento de Sistemas',
-      'bio.grad.text': 'e estudante de Ciências da Computação.',
-      'bio.learn.strong': 'Focado em aprender mais todos os dias',
-      'bio.learn.text': '— Sempre em busca de novos desafios e tecnologias.',
-      'bio.innovate.strong': 'Sempre buscando criar soluções inovadoras',
-      'bio.innovate.text': 'que façam a diferença no mundo da tecnologia.',
-      'bio.dev.strong': 'Desenvolvedor Full Stack',
-      'bio.dev.text': 'com experiência em Java, PL/SQL, React e Vue.js. Apaixonado por tecnologia e sempre em busca de novos desafios.',
-      'certs.title': 'CONQUISTAS',
-      'certs.view': 'Ver Certificado',
-      'certs.list': [
+  'pt-BR': {
+    'page.title': 'Pedro Nascimento - RPG Character Sheet',
+    'page.subtitle': 'Desenvolvedor Full Stack',
+    'bio.title': 'BIOGRAFIA',
+    'bio.grad.strong': 'Formado em Análise e Desenvolvimento de Sistemas',
+    'bio.grad.text': 'e estudante de Ciências da Computação.',
+    'bio.learn.strong': 'Focado em aprender mais todos os dias',
+    'bio.learn.text': '— Sempre em busca de novos desafios e tecnologias.',
+    'bio.innovate.strong': 'Sempre buscando criar soluções inovadoras',
+    'bio.innovate.text': 'que façam a diferença no mundo da tecnologia.',
+    'bio.dev.strong': 'Desenvolvedor Full Stack',
+    'bio.dev.text': 'com experiência em Java, PL/SQL, React e Vue.js. Apaixonado por tecnologia e sempre em busca de novos desafios.',
+    'certs.title': 'CONQUISTAS',
+    'certs.view': 'Ver Certificado',
+    'certs.list': [
       { title: 'Curso Completo de Banco de Dados Oracle SQL e PL/SQL', hours: '16h 33m', link: '/certificados/CERTIFICADO_PL_SQL.pdf' },
       { title: 'Java Completo', hours: '77h 7m', link: '/certificados/CERTIFICADO_JAVA.pdf' },
       { title: 'Santander Coders', hours: '19h', link: '/certificados/CERTIFICADO_SANTANDER.pdf' },
       { title: 'Formação A partir do zero - iniciante em programação', hours: '31h', link: '/certificados/Pedro Henrique De Almeida Nascimento - Formação A partir do zero_ iniciante em programação - Alura.pdf' },
       { title: 'Formação Aprenda a programar em Java com Orientação a Objetos', hours: '40h', link: '/certificados/Pedro Henrique De Almeida Nascimento - Formação Aprenda a programar em Java com Orientação a Objetos - Alura' },
     ],
-     'char.calculating': 'Calculando...',
-     'char.years': 'anos',
-     'char.str': 'FORÇA',
-     'char.def': 'DEFESA',
-     'char.int': 'INTELIGÊNCIA',
-     'char.spd': 'VELOCIDADE',
-     'char.name': 'Pedro Nascimento',
-     'char.class': 'Desenvolvedor Full Stack | Java | PL/SQL',
-     'char.xp': '8,500 / 10,000 XP',
-     'char.xp.label': 'EXPERIÊNCIA',
-     'char.xp.value': '85%',
-     'char.xp.bar': 'width: 85%;',
-     'char.xp.fill': 'width: 85%;',
-     'edu.title': 'FORMAÇÃO',
+    'char.calculating': 'Calculando...',
+    'char.years': 'anos',
+    'char.str': 'FORÇA',
+    'char.def': 'DEFESA',
+    'char.int': 'INTELIGÊNCIA',
+    'char.spd': 'VELOCIDADE',
+    'char.name': 'Pedro Nascimento',
+    'char.class': 'Desenvolvedor Full Stack | Java | PL/SQL',
+    'char.xp': '8,500 / 10,000 XP',
+    'char.xp.label': 'EXPERIÊNCIA',
+    'char.xp.value': '85%',
+    'char.xp.bar': 'width: 85%;',
+    'char.xp.fill': 'width: 85%;',
+    'edu.title': 'FORMAÇÃO',
     'edu.list': [
       {
         title: 'Análise e Desenvolvimento de Sistemas',
         type: 'Tecnólogo',
         institution: 'Faculdade Nova Roma',
         period: 'Fev 2023 - Jun 2025',
-        link: '/certificados/Declaracao conclusao curso ADS Pedro H A Nascimento_NOVAROMA.pdf',
+        link: '/certificados/Diploma - ADS - PEDROHAN.pdf',
       },
       {
         title: 'Ciências da Computação',
@@ -58,6 +58,7 @@ export const ui = {
         description: [
           'Responsável pelo desenvolvimento e manutenção de sistemas na equipe Prime da Unimed-BH, utilizando Java com Spring Framework, Angular 10 e PL/SQL (Oracle).',
           'Participei de melhorias e implementações em serviços corporativos. Nesse período, também idealizei e desenvolvi o projeto ZenMV, uma plataforma de bem-estar corporativo com agendamento de massagens e check-ins em atividades, construída em Laravel 11, TailwindCSS e Livewire.',
+          'Também participei da Implementação das DL do CNPJ Alfanumérico e a Reforma Tributária.'
         ],
         tags: ['Java', 'Spring Boot', 'PL/SQL', 'Laravel', 'Angular', 'Git'],
       },
@@ -90,22 +91,22 @@ export const ui = {
 
 
 
-    },
-    'en-US': {
-      'page.title': 'Pedro Nascimento - RPG Character Sheet',
-      'page.subtitle': 'Full Stack Developer',
-      'bio.title': 'BIOGRAPHY',
-      'bio.grad.strong': 'Graduated in Systems Analysis and Development',
-      'bio.grad.text': 'and Computer Science student.',
-      'bio.learn.strong': 'Focused on learning more every day',
-      'bio.learn.text': '— Always looking for new challenges and technologies.',
-      'bio.innovate.strong': 'Always looking to create innovative solutions',
-      'bio.innovate.text': 'that make a difference in the tech world.',
-      'bio.dev.strong': 'Full Stack Developer',
-      'bio.dev.text': 'with experience in Java, PL/SQL, React and Vue.js. Passionate about technology and always looking for new challenges.',
-      'certs.title': 'ACHIEVEMENTS',
-      'certs.view': 'View Certificate',
-      'certs.list': [
+  },
+  'en-US': {
+    'page.title': 'Pedro Nascimento - RPG Character Sheet',
+    'page.subtitle': 'Full Stack Developer',
+    'bio.title': 'BIOGRAPHY',
+    'bio.grad.strong': 'Graduated in Systems Analysis and Development',
+    'bio.grad.text': 'and Computer Science student.',
+    'bio.learn.strong': 'Focused on learning more every day',
+    'bio.learn.text': '— Always looking for new challenges and technologies.',
+    'bio.innovate.strong': 'Always looking to create innovative solutions',
+    'bio.innovate.text': 'that make a difference in the tech world.',
+    'bio.dev.strong': 'Full Stack Developer',
+    'bio.dev.text': 'with experience in Java, PL/SQL, React and Vue.js. Passionate about technology and always looking for new challenges.',
+    'certs.title': 'ACHIEVEMENTS',
+    'certs.view': 'View Certificate',
+    'certs.list': [
       { title: 'Complete Oracle SQL and PL/SQL Database Course', hours: '16h 33m', link: '/certificados/CERTIFICADO_PL_SQL.pdf' },
       { title: 'Complete Java', hours: '77h 7m', link: '/certificados/CERTIFICADO_JAVA.pdf' },
       { title: 'Santander Coders', hours: '19h', link: '/certificados/CERTIFICADO_SANTANDER.pdf' },
@@ -132,7 +133,7 @@ export const ui = {
         type: 'Associate Degree',
         institution: 'Faculdade Nova Roma',
         period: 'Feb 2023 - Jun 2025',
-        link: '/certificados/Declaracao conclusao curso ADS Pedro H A Nascimento_NOVAROMA.pdf',
+        link: '/certificados/Diploma - ADS - PEDROHAN.pdf',
       },
       {
         title: 'Computer Science',
@@ -182,5 +183,5 @@ export const ui = {
 
 
 
-    }
-  } as const;
+  }
+} as const;

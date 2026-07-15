@@ -1,0 +1,89 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CharacterCard from '../../components/CharacterCard';
+import SkillsSection from '../../components/SkillsSection';
+import BioSection from '../../components/BioSection';
+import ExperienceSection from '../../components/ExperienceSection';
+import EducationSection from '../../components/EducationSection';
+import CertificatesSection from '../../components/CertificatesSection';
+import Footer from '../../components/Footer';
+
+import LanguagePicker from '../../components/LanguagePicker.astro';
+import { ui } from '../../i18n/ui';
+
+const lang = 'en-US';
+---
+
+<BaseLayout title={ui[lang]['page.title']} lang={lang}>
+  <div class="rpg-container">
+    <header class="rpg-header">
+      <LanguagePicker currentLang={lang} />
+      
+      <h1 class="rpg-title">CHARACTER SHEET</h1>
+      <div class="rpg-subtitle">{ui[lang]['page.subtitle']}</div>
+    </header>
+
+    <CharacterCard 
+      client:load 
+      calculatingText={ui[lang]['char.calculating']}
+      yearsText={ui[lang]['char.years']}
+      strText={ui[lang]['char.str']}
+      defText={ui[lang]['char.def']}
+      intText={ui[lang]['char.int']}
+      spdText={ui[lang]['char.spd']}
+      nameText={ui[lang]['char.name']}
+      classText={ui[lang]['char.class']}
+      xpLabel={ui[lang]['char.xp.label']}
+      xpText={ui[lang]['char.xp']}
+      infoCardTexts={{
+        titleText: ui[lang]['info.title'],
+        ageLabel: ui[lang]['info.age'],
+        locationLabel: ui[lang]['info.location.label'],
+        locationValue: ui[lang]['info.location.value'],
+        emailLabel: ui[lang]['info.email'],
+        whatsappLabel: ui[lang]['info.whatsapp'],
+        hobbyLabel: ui[lang]['info.hobby.label'],
+        hobbyValue: ui[lang]['info.hobby.value'],
+        focusLabel: ui[lang]['info.focus'],
+      }}
+    />
+
+    <SkillsSection 
+      client:load 
+      titleText={ui[lang]['skills.title']}
+      languagesText={ui[lang]['skills.languages']}
+      frameworksText={ui[lang]['skills.frameworks']}
+      toolsText={ui[lang]['skills.tools']}
+    />
+
+    <BioSection 
+      title={ui[lang]['bio.title']}
+      gradStrong={ui[lang]['bio.grad.strong']}
+      gradText={ui[lang]['bio.grad.text']}
+      learnStrong={ui[lang]['bio.learn.strong']}
+      learnText={ui[lang]['bio.learn.text']}
+      innovateStrong={ui[lang]['bio.innovate.strong']}
+      innovateText={ui[lang]['bio.innovate.text']}
+      devStrong={ui[lang]['bio.dev.strong']}
+      devText={ui[lang]['bio.dev.text']}
+    />
+
+    <ExperienceSection 
+      sectionTitle={ui[lang]['exp.title']}
+      experiences={ui[lang]['exp.list'] as any}
+    />
+
+    <EducationSection 
+      sectionTitle={ui[lang]['edu.title']}
+      educations={ui[lang]['edu.list'] as any}
+    />
+
+    <CertificatesSection 
+      sectionTitle={ui[lang]['certs.title']}
+      viewText={ui[lang]['certs.view']}
+      certificates={ui[lang]['certs.list'] as any} 
+    />
+
+    <Footer developedByText={ui[lang]['footer.developedBy']} />
+  </div>
+</BaseLayout>
